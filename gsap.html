@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- <div class="loader">
+    <div class="wall w1"></div>
+    <div class="wall w2"></div>
+    <div class="wall w3"></div>
+    <div class="wall w4"></div>
+    <div class="wall w5"></div>
+    <div class="wall w6"></div>
+</div> -->
+
+    <div id="scroll_val">
+      <span id="getVal">
+        <i class="fa fa-fighter-jet" aria-hidden="true"></i>
+      </span>
+    </div>
+
+    <div id="sec_wrap">
+        <section id="sec_1" class="fixed_sec">
+            <!-- <div class="sun"></div> -->
+            <div id="car_box" class="car_wrap">
+          <div class="light"></div>
+          <img src="images/car.png" class="car_body" />
+          <img src="images/tyre.png" class="tyre tyre1" />
+          <img src="images/tyre.png" class="tyre tyre2" />
+        </div>
+      </section>
+      <!-- <section id="sec_2" class="fixed_sec">
+        <h1>Section 2</h1>
+      </section>
+      <section id="sec_3" class="fixed_sec">
+        <h1>Section 3</h1>
+      </section>
+      <section id="sec_4" class="fixed_sec">
+        <h1>Section 4</h1>
+      </section>
+      <section id="sec_5" class="fixed_sec">
+        <h1>Section 5</h1>
+      </section>
+      <section id="sec_6" class="fixed_sec">
+        <h1>Section 6</h1>
+      </section>
+      <section id="sec_7">
+        <h1>Section 7</h1>
+      </section> -->
+    </div>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+    <!-- <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js?ver=1665471170' id='gsap-js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollToPlugin.min.js?ver=1665471170' id='gsap-scroll-js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js?ver=1665471170' id='gsap-scroll-trigger-js'></script> -->
+
+    <script>
+       let a = document.getElementById('getVal');
+      let sec_2 = document.getElementById("sec_2");
+      let sec_3 = document.getElementById("sec_3");
+      let sec_4 = document.getElementById("sec_4");
+      let sec_5 = document.getElementById("sec_5");
+      let sec_6 = document.getElementById("sec_6");
+      let smooth_scrl = document.getElementById("smooth_scrl");
+      let scroll_val = document.getElementById("scroll_val");
+
+      let sec_1 = document.getElementById("sec_1");
+      let car_box = document.getElementById("car_box");
+      let tyre = document.querySelectorAll(".tyre");
+
+    
+
+      // let getVal = document.getElementById("getVal"); //Element
+
+      window.addEventListener("scroll", () => {
+        let scrlTop = window.scrollY; // Y Offset
+
+        scroll_val.style.left=scrlTop+"px";
+        scroll_val.style.bottom=scrlTop/2+"px";
+        // scroll_val.style.transform="rotate(-"+ scrlTop/20 +"deg)";
+
+
+
+
+
+        sec_1.style.backgroundPosition = "-" + scrlTop + "px";
+        car_box.style.left = scrlTop / 5 + "px";
+        // smooth_scrl.style.height = scrlTop + "px";
+        tyre.forEach((item) => {
+          item.style.transform = "rotate(" + scrlTop + "deg)";
+        });
+        if(scrlTop >= screen.width){
+            sec_1.classList.add('position_unset');
+            // wi ndow.location="http://ahmedraza786.com/";
+            
+        }
+        else{
+            sec_1.classList.remove('position_unset');
+        }
+
+        // if (scrlTop > 0 && scrlTop < 401) {
+        //     scrlTop = 180;
+        //     scroll_val.style.transform = `rotate(-${scrlTop}deg)`;
+        // }
+        // else{
+        //     scroll_val.style.top = "-"+scrlTop + 'px';
+        // }
+
+        // for(let i = 0; i <= 100; i++) {
+        //     if (scrlTop > 90 && scrlTop < 360) {
+        //         scroll_val.style.right = i + '%';
+
+        // }
+        // }
+
+        // function rotDown() {
+        //   for (i = 0; i > scrlTop; i++) {
+        //     console.log(i);
+        //     // scroll_val.style.transform = `rotate(${i}deg)`;
+        //   }
+        // }
+
+        // sec_2.style.marginTop= "-"+scrlTop+"px";
+        // if(scrlTop > 90){
+        //     scroll_val.classList.add('h-100vh');
+        // }
+        // else{
+        //     scroll_val.classList.remove('h-100vh');
+        // }
+        // if(scrlTop > 399){
+        //     getVal.style.left="-40%";
+        // }
+        // else{
+        //     getVal.style.left="40%";
+        // }
+        // if(scrlTop > 835){
+        //     getVal.classList.add('t-scale-0');
+        // }
+        // else{
+        //     getVal.classList.remove('t-scale-0');
+        // }
+      });
+
+      // gsap.registerPlugin(ScrollTrigger);
+
+      // gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+      // gsap.to('#sec_2', {
+      //   scrollTrigger: {
+      //     startTrigger: "#sec_2",
+      //     // endTrigger: ".team",
+      //     // trigger: ".team h2",
+      //     start:"top",
+      //     end:"+=100px",
+      //     scrub: 1,
+      //     markers:true,
+      //     toggleActions: "restart pause reverse pause",
+      //   },
+      //   y: '-100%',
+      //   duration:3,
+      // });
+
+      // gsap.to('#sec_3', {
+      //   scrollTrigger: {
+      //     startTrigger: "#sec_3",
+      //     // endTrigger: ".team",
+      //     // trigger: ".team h2",
+      //     start:"top ",
+      //     end:"+=100px",
+      //     scrub: 1,
+      //     markers:true,
+      //     toggleActions: "restart pause reverse pause",
+      //     duration:3
+
+      //   },
+      //   y: '-100%',
+      //   duration:3
+      // });
+
+      // ScrollTrigger.create({
+      //     ScrollTrigger:"",
+      //     start:"top top",
+      //     end:"+=300px",
+      //     pinSpacing:false,
+      //     pin:true,
+      //     marker:true
+      // });
+
+      // for(i = 0; i < 100; i++){
+      //     setInterval(function(){
+      //         counter.innerHTML=i++;
+      //     },100);
+      // }
+      // for (let i = 0; i < 1; i++) {
+      // setInterval(function(){
+      //     counter.innerHTML=i;
+
+      //   },1000);
+      // }
+
+      // $(document).ready(function(){
+      //     setInterval(function(){
+      //         $('.w1').addClass('test');
+      //     },1000);
+      //     setInterval(function(){
+      //         $('.w2').addClass('test');
+      //     },1100);
+      //     setInterval(function(){
+      //         $('.w3').addClass('test');
+      //     },1200);
+      //     setInterval(function(){
+      //         $('.w4').addClass('test');
+      //     },1300);
+      //     setInterval(function(){
+      //         $('.w5').addClass('test');
+      //     },1400);
+      //     setInterval(function(){
+      //         $('.w6').addClass('test');
+      //     },1500);
+      //     setInterval(function(){
+      //         $('.loader').addClass('d-none');
+      //     },2000);
+      // });
+      // $('button').click(function(){
+      //     $('#root').load('file:///C:/Users/abdul.mutal/Desktop/mybuilder.html');
+      //     // window.location.href = 'file:///C:/Users/abdul.mutal/Desktop/gsap.html';
+      // });
+    </script>
+  </body>
+  <style>
+.cloud {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+}    
+    div#car_box .car_body {
+      transform: rotateY(180deg);
+    }
+    div#car_box img {
+      width: 100%;
+    }
+
+    div#car_box {
+      width: 400px;
+      position: relative;
+      left: 0px;
+      /* transition: 0.5s; */
+      bottom: 20px;
+    }
+    img.tyre {
+      position: absolute;
+      width: 100px !important;
+      bottom: -13px;
+      /* transition: 0.5s; */
+      transform: rotate(0deg);
+    }
+    .tyre1 {
+      right: 28px;
+    }
+
+    .tyre2 {
+      left: 29px;
+    }
+    .sun {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    position: absolute;
+    z-index: 999;
+    border-radius: 50%;
+}
+
+    span#getVal {
+      /* transition: .5s; */
+      /* left: 40%; */
+      /* position: relative; */
+      /* transition: .5s ; */
+    }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    .t-scale-0 {
+      transform: scale(0);
+    }
+    .loader {
+      display: flex;
+      position: fixed;
+      inset: 0;
+    }
+    .loader .wall {
+      width: 100% !important;
+      height: 100% !important;
+      transition: 0.5s;
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .h-100vh {
+      height: 100vh !important;
+    }
+    .d-none {
+      display: none;
+    }
+
+    .fixed_sec {
+      display: flex;
+      width: 100%;
+      align-items: end;
+      justify-content: start;
+      height: 100vh;
+      overflow: hidden;
+    }
+    section#sec_1 {
+      /* background-color: #d0ecff; */
+      position: sticky;
+      top: 0;
+      background-image: url(./images/city_bg_2.png);
+      background-size: 100%;
+      background-position: 0;
+    }
+    section#sec_2 {
+      background-color: green;
+    }
+
+    section#sec_3 {
+      background-color: blue;
+    }
+
+    section#sec_4 {
+      background-color: rebeccapurple;
+    }
+
+    section#sec_5 {
+      background-color: royalblue;
+    }
+
+    section#sec_6 {
+      background-color: aqua;
+    }
+
+    .loader .test {
+      height: 0vh !important;
+    }
+    div#scroll_val {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      /* height: 20vh; */
+      /* text-align: center; */
+      /* width: 100%; */
+      /* justify-content: center; */
+      /* align-items: center; */
+      font-size: 220px;
+      /* display: flex; */
+      /* transition: 0.5s; */
+      width: fit-content;
+    }
+    div#sec_wrap {
+        background-color: #d0ecff;
+        height: 5000px;
+    }
+  </style>
+</html>
